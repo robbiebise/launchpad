@@ -8,7 +8,7 @@ node {
             if (env.CHANGE_ID) { // Check if this is a PR
                 sh "${scannerHome}/bin/sonar-scanner -Dsonar.pullrequest.key=${env.CHANGE_ID} -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} -Dsonar.pullrequest.base=${env.CHANGE_TARGET}"
             } else {
-                sh "${scannerHome}/bin/sonar-scanner"
+                sh "${scannerHome}/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner"
             }
         }
     }
