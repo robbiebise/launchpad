@@ -1,6 +1,6 @@
 node {
   stage('SCM') {
-    git 'https://github.com/robbiebise/launchpad'
+    git 'https://github.com/robbiebise/launchpad.git'
   }
   stage('SonarQube analysis') {
     def scannerHome = tool 'sonar-scanner-cli'; // must match the name of an actual scanner installation directory on your Jenkins build agent
